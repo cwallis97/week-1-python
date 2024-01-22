@@ -1,0 +1,343 @@
+book_name = "To Kill a Mockingbird"
+author = "Harper Lee"
+sentence1 = "I have read " + book_name + " which is written by " + author + "."
+sentence2 = f"Reading this book made me realize I love to read {book_name} by the author {author}!"
+publication_year = 1960
+book_price = 14.99
+is_awesome = True
+
+print(author)
+print(sentence1)
+print(sentence2)
+print(publication_year)
+print(book_price)
+print(is_awesome)
+
+print(type(book_name))
+print(type(author))
+print(type(sentence1))
+print(type(sentence2))
+print(type(publication_year))
+print(type(book_price))
+print(type(is_awesome))
+
+
+
+
+
+
+my_authors = ["Agatha Christie", "Ernest Hemingway", "J.K. Rowling", "Gabriel Garcia Marquez", "Toni Morrison", "Haruki Murakami", "Jane Austen", "George Orwell"]
+
+my_authors.append("JK rolling")
+print(my_authors)
+
+my_authors.remove("Toni Morrison")
+print(my_authors)
+
+print(my_authors[2])
+
+print(my_authors[2:5])
+
+
+
+my_author_tuple = ("Agatha Christie", "Ernest Hemingway", "J.K. Rowling", "Gabriel Garcia Marquez", "Toni Morrison", "Haruki Murakami", "Jane Austen", "George Orwell")
+
+
+
+my_author_set = {"Agatha Christie", "Ernest Hemingway", "J.K. Rowling", "Gabriel Garcia Marquez", "Toni Morrison", "Haruki Murakami", "Jane Austen", "George Orwell"}
+
+my_author_set.add("Fyodor Dostoevsky")
+print(my_author_set)
+
+my_author_set.add("Fyodor Dostoevsky")
+print(my_author_set)
+
+
+
+for book in my_authors:
+    print(book)
+
+for book in my_author_tuple:
+    print(book)
+
+for book in my_author_set:
+    print(book)
+my_book = {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "year": 1960,
+    "rating": 4.5,
+    "pages": 281
+}
+
+my_book_list = [
+    {
+        "title": "1984",
+        "author": "George Orwell",
+        "year": 1949,
+        "rating": 4.16,
+        "pages": 328
+    },
+    {
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "year": 1813,
+        "rating": 4.25,
+        "pages": 279
+    },
+    {
+        "title": "One Hundred Years of Solitude",
+        "author": "Gabriel Garcia Marquez",
+        "year": 1967,
+        "rating": 4.06,
+        "pages": 417
+    },
+    {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "year": 1925,
+        "rating": 3.9,
+        "pages": 180
+    }
+]
+
+def book_parser(book_dictionary):
+    book_string = f"This book's name is {book_dictionary['title']}, and was written by {book_dictionary['author']}. It was published in the year {book_dictionary['year']} and currently holds a rating of {book_dictionary['rating']}. The length of the book is {book_dictionary['pages']} pages."
+    return book_string
+
+print(book_parser(my_book))
+
+def get_book_title(book_dictionary):
+    return book_dictionary["title"]
+
+def get_book_author(book_dictionary):
+    return book_dictionary["author"]
+
+def get_book_year(book_dictionary):
+    return book_dictionary["year"]
+
+def get_book_rating(book_dictionary):
+    return book_dictionary["rating"]
+
+def get_book_pages(book_dictionary):
+    return book_dictionary["pages"]
+
+print(get_book_title(my_book))
+print(get_book_author(my_book))
+print(get_book_year(my_book))
+print(get_book_rating(my_book))
+print(get_book_year(my_book))
+
+def book_parser_from_list(book_dictionary_list):
+    for book_dictionary in book_dictionary_list:
+        print(book_parser(book_dictionary))
+
+def get_set_of_authors(book_dictionary_list):
+    author_set = set()
+
+    for book_dictionary in book_dictionary_list:
+        author_set.add(book_dictionary["author"])
+
+    return author_set
+
+def get_total_pages(book_dictionary_list):
+    total_pages = 0
+
+    for book_dictionary in book_dictionary_list:
+        total_pages += book_dictionary["pages"]
+
+    return total_pages
+
+book_parser_from_list(my_book_list)
+print(get_set_of_authors(my_book_list))
+print(get_total_pages(my_book_list))
+
+
+
+
+current_books = [
+    {
+        "title": "The Martian",
+        "author": "Andy Weir",
+        "year": 2011,
+        "rating": 4.7,
+        "pages": 369
+    },
+    {
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "year": 1988,
+        "rating": 4.2,
+        "pages": 208
+    },
+    {
+        "title": "The Girl with the Dragon Tattoo",
+        "author": "Stieg Larsson",
+        "year": 2005,
+        "rating": 4.1,
+        "pages": 590
+    },
+    {
+        "title": "The Road",
+        "author": "Cormac McCarthy",
+        "year": 2006,
+        "rating": 4.0,
+        "pages": 287
+    }
+]
+
+
+
+def create_new_book():
+    title = input("\nWhat is the title of the book you would like to add? - ")
+    author = input("Who is the author of the book you would like to add? - ")
+    try:
+        year = int(input("What year was this book published? - "))
+    except:
+        year = int(input("Please type a number? - "))
+    try:
+        rating = float(input("What rating out of 5 would you give this book? - "))
+    except:
+        rating = int(input("Please type a number? - "))
+    try:
+        pages = int(input("What is the page count of the book? - "))
+    except:
+        pages = int(input("Please type a number? - "))
+
+    book_dictionary = {
+        "title": title,
+        "author": author,
+        "year": year,
+        "rating": rating,
+        "pages": pages
+    }
+
+    return book_dictionary
+
+def print_all_books(list_of_books):
+    print("\nHere are all your books...\n")
+    for book in list_of_books:
+        title = book["title"]
+        author = book["author"]
+        year = book["year"]
+        rating = book["rating"]
+        pages = book["pages"]
+        print(f"Title: {title}, Author: {author}, Year: {year}, Rating: {rating}, Pages: {pages}")
+
+def main_menu(books_source):
+    active = True
+    while active:
+        choice = input("\nChoose 1 to add a book...\nChoose 2 to see all your books...\nChoose 3 to see a count of your books...\nChoose 4 to see a count of the pages of your books...\nChoose 5 to exit.\nType here: ")
+        if choice == "1":
+            books_source.append(create_new_book())
+        elif choice == "2":
+            print_all_books(books_source)
+        elif choice == "3":
+            print(f"\nYou have a total of {len(books_source)} books.\n")
+        elif choice == "4":
+            print(f"\nYour books have a total of {sum([x['pages'] for x in books_source])} pages!\n")
+        elif choice == "5":
+            print("\nGoodbye")
+            active = False
+        else:
+            print("\nSorry, please type a number for one of the options.\n")
+
+main_menu(current_books)
+
+
+
+def create_new_book(book_source):
+    title = input("\nWhat is the title of the book you would like to add? - ")
+    author = input("Who is the author of the book you would like to add? - ")
+    try:
+        year = int(input("What year was this book published? - "))
+    except:
+        year = int(input("Please type a number? - "))
+    try:
+        rating = float(input("What rating out of 5 would you give this book? - "))
+    except:
+        rating = int(input("Please type a number? - "))
+    try:
+        pages = int(input("What is the page count of the book? - "))
+    except:
+        pages = int(input("Please type a number? - "))
+
+    with open(book_source, "a") as file:
+        file.write(f"{title}, {author}, {year}, {rating}, {pages}\n")
+
+def get_books_as_list_of_dictionaries(book_source):
+    books_list = []
+    with open(book_source, "r") as f:
+        file = f.readlines()
+        for line in file:
+            title, author, year, rating, pages = line.split(", ")
+            books_list.append({
+                "title": title,
+                "author": author,
+                "year": int(year),
+                "rating": float(rating),
+                "pages": int(pages)
+            })
+    return books_list
+
+def get_book_printed(book):
+    print(f"Title: {book['title']}, Author: {book['author']}, Year: {book['year']}, Rating: {book['rating']}, Pages: {book['pages']}")
+
+def view_books(book_source):
+    print("\nHere are all your books...\n")
+    for book in get_books_as_list_of_dictionaries(book_source):
+        get_book_printed(book)
+
+def get_highest_rated_book(book_source):
+    list = get_books_as_list_of_dictionaries(book_source)
+    return max(list, key=lambda x: int(x["rating"]))
+
+def get_lowest_rated_book(book_source):
+    list = get_books_as_list_of_dictionaries(book_source)
+    return min(list, key=lambda x: int(x["rating"]))
+
+def get_sorted_list_by_rating(book_source):
+    print("\nHere are all your books ranked by rating...\n")
+    list = get_books_as_list_of_dictionaries(book_source)
+    list =  sorted(list, key=lambda x: int(x["rating"]), reverse=True)
+    for book in list:
+        get_book_printed(book)
+
+def main_menu(book_source):
+    active = True
+    while active:
+        choice = input("""
+Choose 1 to add a book...
+Choose 2 to see all your books...
+Choose 3 to see a count of your books...
+Choose 4 to see a count of the pages of your books...
+Choose 5 to see the your highest rated book...
+Choose 6 to see your lowest rated book...
+Choose 7 to see your books ranked by order of rating...
+Choose 0 to exit.
+Type here: """)
+
+        if choice == "1":
+            create_new_book(book_source)
+        elif choice == "2":
+            view_books(book_source)
+        elif choice == "3":
+            print(f"\nYou have a total of {len(get_books_as_list_of_dictionaries(book_source))} books.\n")
+        elif choice == "4":
+            print(f"\nYour books have a total of {sum([x['pages'] for x in get_books_as_list_of_dictionaries(book_source)])} pages!\n")
+        elif choice == "5":
+            print("\nHere is your highest rated book...\n")
+            get_book_printed(get_highest_rated_book(book_source))
+        elif choice == "6":
+            print("\nHere is your lowest rated book...\n")
+            get_book_printed(get_lowest_rated_book(book_source))
+        elif choice == "7":
+            get_sorted_list_by_rating(book_source)
+        elif choice == "0":
+            print("\nGoodbye")
+            active = False
+        else:
+            print("\nSorry, please type a number for one of the options.\n")
+
+if __name__ == "__main__":
+    main_menu("library.txt")
